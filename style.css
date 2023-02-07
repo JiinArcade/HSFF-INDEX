@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.lg-hidden {
+  display: none;
+}
+
+.global-header {
+  width: 100%;
+  height: 150px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gnb-log {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px 20px 0;
+}
+
+.gnb-log a {
+  color: #666;
+  margin-left: 18px;
+  font-size: 13px;
+}
+
+.gnb-log a i {
+  margin-right: 5px;
+}
+
+.gnb-main {
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.gnb-main-list {
+  display: flex;
+}
+
+.gnb-main-item {
+  position: relative;
+}
+
+.gnb-main-item a {
+  display: block;
+  height: 85px;
+  padding: 0 20px;
+  line-height: 85px;
+  text-align: center;
+}
+
+/* .gnb-main-list > li > a:hover,
+.gnb-main-list > li > a.on {
+  color: red;
+} */
+
+.gnb-main-item a.active {
+  color: #0167c7;
+}
+
+
+.sub {
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.sub:before {
+  /* 가상은 content가 빈칸이라도 꼭 넣어줘야 함, 지금은 text가 아닌 네모난 박스이기에 비워둠 */
+  content:'';                                      
+  width: 10px;
+  height: 10px;
+  background-color: #113676;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sub li:hover {
+  background-color: rgb(230, 229, 229);
+}
+
+.sub li a {
+  font-size: 15px;
+}
+
+.gnb-open-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.slide-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-list {
+  display: flex;
+  /* 각 100vw씩 */
+  width: 300vw;
+  height: 700px;
+  transition: transform 1000ms ease-in-out;
+  /* transform: translateX(-100vw); */
+}
+
+.slide-item {
+  width: 100vw;
+  height: 100%;
+}
+
+.slide-item img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  background-color:rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 25px 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide-btn li {
+  margin-right: 20px;
+  transition: color 300ms ease-in-out;
+}
+
+.slide-btn li:hover {
+  color: #ffe111;
+}
+
+.slide-btn li:last-child {
+  margin-right: 0;
+}
+
+.slide-btn li:after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background-color: #aaa;
+  margin-left: 20px;
+}
+
+.slide-btn li:last-child:after {
+  content: none;
+}
+
+footer {
+  margin-top: 60px;
+}
+
+.footer-top {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #414244;
+  color: #aaa;
+  padding: 0 40px;
+}
+
+.footer-top a {
+  color: #aaa;
+}
+
+.footer-left {
+  display: flex;
+}
+
+.footer-left a {
+  /* a태그들이 높이 값을 다 가지도록 block처리 */
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  font-size: 16px;
+  border-left: 1px solid rgba(225, 225, 225, .1);
+}
+
+.footer-left li:last-child a {
+  border-right: 1px solid rgba(225, 225, 225, .1);
+}
+
+.footer-left li:nth-child(2) a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer-right {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.time {
+  font-size: 13px;
+}
+
+.footer-bottom {
+  background-color: #2d2d30;
+  color: #aaa;
+  padding: 50px 40px;
+}
+
+.footer-bottom img {
+  opacity: 0.5;
+}
+
+.footer-bottom ul {
+  display: flex;
+  margin-top: 30px;
+}
+
+.footer-bottom ul li:before {
+  content: '';
+  width: 1px;
+  height: 15px;
+  background-color: #555;
+  display: inline-block;
+  margin: 0 20px;
+  transform: rotate(30deg);
+}
+
+.footer-bottom ul li:first-child:before {
+  content: none;
+}
+
+.footer-bottom p {
+  margin-top: 10px;
+}
+
+
+@media screen and (max-width:1200px) {
+  .lg-only {
+    display: none;
+  }
+
+  .lg-hidden {
+    display: block;
+  }
+
+  .global-header {
+    width: 100%;
+    height: 140px;
+  }
+  
+  .gnb-log a {
+    margin-left: 17px;
+    font-size: 11px;
+  }
+  
+  .gnb-main {
+    width: 100%;
+    height: 80px;
+  }
+  
+  .gnb-main-item a {
+    height: 80px;
+    line-height: 80px;
+  }
+
+  .slide-list {
+    max-width: 1200px;
+    height: 600px;
+  }
+  
+  .slide-item {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide-item img {
+    max-width: 1200px;
+  }
+  
+  .slide-btn {
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .slide-btn li {
+    font-size: 14px;
+  }
+
+  .footer-top {
+    height: 50px;
+    padding: 0 30px;
+  }
+  
+  .footer-left a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+  
+  .footer-right {
+    width: 300px;
+  }
+  
+  .footer-right p {
+    font-size: 13px;
+  }
+  
+  .number {
+    font-size: 21px;
+  }
+  
+  .time {
+    font-size: 12px;
+  }
+  
+  .footer-bottom {
+    padding: 30px 40px;
+  }
+
+  .footer-bottom img {
+    height: 25px;
+  }
+  
+  .footer-bottom ul {
+    margin-top: 20px;
+  }
+
+  .footer-bottom li {
+    font-size: 13px;
+  }
+  
+  .footer-bottom p {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+
+  .sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 200;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-200px);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .sidebar.is-active {
+    transform: translateX(0); 
+  }
+
+  .sidebar-btn {
+    float: right;
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-list {
+    clear: right;
+  }
+
+  .sidebar-item a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .sidebar-item:first-child a {
+    border-top: 1px solid #ccc;
+  }
+
+}
